@@ -16,9 +16,11 @@ namespace StoreProject.Dal.Concrete
         {
         }
 
-        public IQueryable<Product> GetAllProducts(bool trackChanges)
+        public IQueryable<Product> GetAllProducts(bool trackChanges) => FindAll(trackChanges);
+
+        public Product? GetOneProduct(int id, bool trackChanges)
         {
-            throw new NotImplementedException();
+            return FindByCondition(p => p.Id == id, trackChanges);
         }
     }
 }

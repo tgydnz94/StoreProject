@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace StoreProject.Dal.Abstract
 {
-    public interface IProductRepository : IRepositoryBase<Product>
+    public interface ICategoryRepository : IRepositoryBase<Category>
     {
-        IQueryable<Product> GetAllProducts(bool trackChanges);
-        Product? GetOneProduct(int id, bool trackChanges);
+
     }
 }
