@@ -11,26 +11,28 @@ namespace StoreProject.Dal.Context
 {
     public class RepositoryContext : DbContext
     {
-        public DbSet<Product> Products { get; set; }
-        public RepositoryContext(DbContextOptions<RepositoryContext> options) : base(options)
+
+        //public RepositoryContext(DbContextOptions<RepositoryContext> options) : base(options)
+        //{
+        //}
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseSqlServer("Server=DESKTOP-8EHVPE9\\SQLEXPRESS;Database=StoreApp;Trusted_Connection=True;");
         }
 
-        public DbSet<Product> products { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Product>().HasKey(a => a.Id);
             modelBuilder.Entity<Product>().
                 HasData(
                 new Product() { Id = 1, Name = "Bilgisayar", Price = 8000 }
                 );
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-8EHVPE9\\SQLEXPRESS;Database=StoreApp;Trusted_Connection=True;");
-            base.OnConfiguring(optionsBuilder);
-        }
+        
     }
 }
