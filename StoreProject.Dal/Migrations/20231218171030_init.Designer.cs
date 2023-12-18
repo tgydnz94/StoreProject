@@ -11,8 +11,8 @@ using StoreProject.Dal.Context;
 namespace StoreProject.Dal.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20231217164022_product")]
-    partial class product
+    [Migration("20231218171030_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,29 @@ namespace StoreProject.Dal.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("StoreProject.Entities.Models.Category", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            CategoryName = "Elektronik"
+                        });
+                });
 
             modelBuilder.Entity("StoreProject.Entities.Models.Product", b =>
                 {

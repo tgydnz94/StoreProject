@@ -12,9 +12,15 @@ namespace StoreProject.Dal.Context
     public class RepositoryContext : DbContext
     {
 
-        public RepositoryContext(DbContextOptions<RepositoryContext> options) : base(options)
+        //public RepositoryContext(DbContextOptions<RepositoryContext> options) : base(options)
+        //{
+        //}
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseSqlServer("Server=DESKTOP-8EHVPE9\\SQLEXPRESS;Database=StoreProject;Trusted_Connection=True; Encrypt=False;");
         }
+
 
 
 
@@ -33,6 +39,7 @@ namespace StoreProject.Dal.Context
                 new Category() { ID = 1, CategoryName = "Elektronik" }
                 );
         }
+        
 
         
     }
