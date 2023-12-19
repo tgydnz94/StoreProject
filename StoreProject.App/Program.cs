@@ -15,10 +15,25 @@ builder.Services.AddScoped<IProductService, ProductManager>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
-app.UseRouting();
 
-    app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseStaticFiles();
+app.UseHttpsRedirection();
+
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapAreaControllerRoute(
+        name:"Admin",
+        areaName:"Admin",
+        pattern: "Admin/{controller=Dashboard}/{action=Index}/{id?}"
+        );
+    endpoints.MapControllerRoute(
+
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}"
+        );
+});
+
+
 
 app.Run();
