@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css" />
+</head>
+<body>
+    <header>
+        Store App : Header
+        <partial name="_Navbar" />
+        @RenderSection("Top",false)
+
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer>
+        @RenderSection("Footer",false)
+        Footer
+    </footer>
+
+    <script src="~/jquery.min.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+    @await RenderSectionAsync("Scripts",required:false)
+
+</body>
+</html>
