@@ -9,6 +9,7 @@ namespace StoreProject.Services.Abstract
 {
     public interface IProductService
     {
+        public void AddProduct(Product product);
         IEnumerable<Product> GetAllProducts(bool trackChanges);
         Product ? GetOneProduct(int id, bool trackChanges);
     }

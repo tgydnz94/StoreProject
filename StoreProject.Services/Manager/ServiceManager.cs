@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StoreProject.Services.Manager
 {
-    public class ServiceManager
+    public class ServiceManager : IServiceManager
     {
     }
 }

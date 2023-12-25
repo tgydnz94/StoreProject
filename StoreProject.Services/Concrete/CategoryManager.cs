@@ -18,6 +18,11 @@ namespace StoreProject.Services.Concrete
             _categoryRepository = categoryRepository;
         }
 
+        public void CreateCategory(Category category)
+        {
+            _categoryRepository.AddOneEntity(category);
+        }
+
         public IQueryable<Category> GetAllCategories(bool trackChanges)
         {
             return _categoryRepository.FindAll(trackChanges);

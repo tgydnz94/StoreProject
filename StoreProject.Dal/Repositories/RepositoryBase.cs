@@ -17,6 +17,12 @@ namespace StoreProject.Dal.Repositories
         {
             _context = context;
         }
+
+        public void AddOneEntity(T entity)
+        {
+            _context.Set<T>().Add(entity);
+        }
+
         public IQueryable<T> FindAll(bool trackChanges)
         {
             return trackChanges

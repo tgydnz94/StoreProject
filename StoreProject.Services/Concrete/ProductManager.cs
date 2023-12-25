@@ -18,6 +18,11 @@ namespace StoreProject.Services.Concrete
             _productRepository = productRepository;
         }
 
+        public void AddProduct(Product product)
+        {
+            _productRepository.AddOneEntity(product);
+        }
+
         public IEnumerable<Product> GetAllProducts(bool trackChanges)
         {
             return _productRepository.GetAllProducts(trackChanges);

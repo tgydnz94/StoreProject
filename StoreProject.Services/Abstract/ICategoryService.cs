@@ -9,6 +9,7 @@ namespace StoreProject.Services.Abstract
 {
     public interface ICategoryService
     {
+        public void CreateCategory(Category category);
         IQueryable<Category> GetAllCategories(bool trackChanges);
     }
 }

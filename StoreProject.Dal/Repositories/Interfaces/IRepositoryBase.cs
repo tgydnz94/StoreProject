@@ -9,6 +9,7 @@ namespace StoreProject.Dal.Repositories.Interfaces
 {
     public interface IRepositoryBase<T>
     {
+        public void AddOneEntity(T entity);
         public IQueryable<T> FindAll(bool trackChanges);
         T? FindByCondition(Expression<Func<T, bool>> expression, bool trackChanges);
     }
