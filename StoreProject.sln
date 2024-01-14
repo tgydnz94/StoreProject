@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreProject.Entities", "St
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreProject.Dal", "StoreProject.Dal\StoreProject.Dal.csproj", "{CAB0622B-872A-486E-9BBB-7034044220EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreProject.Services", "StoreProject.Services\StoreProject.Services.csproj", "{E2D0A226-BDEC-4021-9F29-A3DDA5F2253B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreProject.Services", "StoreProject.Services\StoreProject.Services.csproj", "{E2D0A226-BDEC-4021-9F29-A3DDA5F2253B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreProject.App", "StoreProject.App\StoreProject.App.csproj", "{0199428F-1177-403A-95DF-9C9CD3B8890B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreProject.App", "StoreProject.App\StoreProject.App.csproj", "{0199428F-1177-403A-95DF-9C9CD3B8890B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

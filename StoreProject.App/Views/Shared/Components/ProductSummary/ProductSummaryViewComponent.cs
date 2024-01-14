@@ -2,15 +2,16 @@
 using StoreProject.Dal.Context;
 using StoreProject.Services.Abstract;
 
-namespace StoreProject.App.Components
+namespace StoreProject.App.Views.Shared.Components.ProductSummary
 {
+    [ViewComponent(Name = "ProductSummary")]
     public class ProductSummaryViewComponent : ViewComponent
     {
         private readonly IProductService _productService;
 
         public ProductSummaryViewComponent(IProductService productService)
         {
-            _productService= productService;
+            _productService = productService;
         }
 
         public string Invoke()
