@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StoreProject.Dal.Context;
 using StoreProject.Services.Abstract;
 
-namespace StoreProject.App.Views.Shared.Components.ProductSummary
+namespace StoreProject.App.Views.Shared.Components.Products.Summary
 {
     [ViewComponent(Name = "ProductSummary")]
     public class ProductSummaryViewComponent : ViewComponent
