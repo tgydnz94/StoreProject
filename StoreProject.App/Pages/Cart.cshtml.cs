@@ -1,20 +1,21 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using StoreProject.Entities.Models;
+using StoreProject.Services.Abstract;
 using StoreProject.Services.Manager;
 
 namespace StoreProject.App.Pages
 {
     public class CartModel : PageModel
     {
-        private readonly IServiceManager _manager;
+        private readonly IProductService _productService;
 
         public Cart Cart { get; set; } // IoC
         public string ReturnUrl { get; set; } = "/";
 
-        public CartModel(IServiceManager manager, Cart cartService)
+        public CartModel(IProductService productService, Cart cartService)
         {
-            _manager = manager;
+            _productService = productService;
             Cart = cartService;
         }
 
@@ -27,8 +28,7 @@ namespace StoreProject.App.Pages
 
         public IActionResult OnPost(int productId, string returnUrl)
         {
-            Product? product = _manager
-                .ProductService
+            Product? product = _productService
                 .GetOneProduct(productId, false);
 
             if (product is not null)
@@ -43,7 +43,7 @@ namespace StoreProject.App.Pages
         public IActionResult OnPostRemove(int id, string returnUrl)
         {
             // Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
-            Cart.RemoveLine(Cart.Lines.First(cl => cl.Product.ProductId.Equals(id)).Product);
+            Cart.RemoveLine(Cart.Lines.First(cl => cl.Product.Id.Equals(id)).Product);
             // HttpContext.Session.SetJson<Cart>("cart",Cart);
             return Page();
         }
